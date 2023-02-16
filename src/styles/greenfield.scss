@@ -1,0 +1,70 @@
+$primary: green;
+$secondary: gray;
+$success: lightgreen;
+$danger: red;
+$warning: orange;
+$info: lightblue;
+$light: white;
+$dark: black;
+
+@import "~bootstrap/scss/_functions";
+@import "~bootstrap/scss/_variables";
+@import "~bootstrap/scss/_mixins";
+
+
+$custom-colors: (
+  "highlight": purple
+);
+
+$theme-colors: map-merge($theme-colors, $custom-colors);
+
+// Below required in Bootstrap 5.1 to define bg-{custom colors}
+//https://stackoverflow.com/questions/68755179/bootstrap-5-custom-theme-colors-not-updating-classes/68762902#68762902
+$theme-colors-rgb: map-loop($theme-colors, to-rgb, "$value");
+
+@import "~bootstrap/scss/bootstrap";
+
+html, body {
+    height: 100%
+  }
+  
+  #root {
+    height: 100%
+  }
+  
+.nocaret .dropdown-toggle::after {
+    display: inline-block;
+    margin-left: 0.255em;
+    vertical-align: 0.255em;
+    content: "";
+    border: 0;
+  }
+
+.menuLink {
+  display: block;
+  padding: .5rem 1rem;
+  color: $primary;
+  text-decoration: none;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
+}  
+
+.menuLinkChild {
+  display: block;
+  padding: 0 0 0.25rem 0.75rem;
+  color: $primary;
+  text-decoration: none;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
+  cursor: pointer;
+}  
+
+.row {
+  margin-right: 0px;
+}
+
+.closetext {
+  margin-bottom: 2px;
+}
+
+.container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+  max-width: 100%;
+}
